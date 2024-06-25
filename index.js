@@ -51,21 +51,14 @@ app.put("/updateproduct", (req, res) => {
     let obj = req.body; //body lave update ma je body lakhi che postman ma
 
     let SearchPro = product.find((val) => val.id == id);
-    if (
-      !(SearchPro && SearchPro.productname) ||
-      (SearchPro && SearchPro.isdeleted == true)
-    ) {
+    if (!(SearchPro && SearchPro.productname) || (SearchPro && SearchPro.isdeleted == true)) {
       res.status(404).send({
         msg: "Product not found",
       });
     } else {
-      SearchPro.productname = obj.productname
-        ? obj.productname
-        : SearchPro.productname;
+      SearchPro.productname = obj.productname ? obj.productname : SearchPro.productname;
       SearchPro.cost = obj.cost ? obj.cost : SearchPro.cost;
-      SearchPro.productdescription = obj.productdescription
-        ? obj.productdescription
-        : SearchPro.productdescription;
+      SearchPro.productdescription = obj.productdescription ? obj.productdescription : SearchPro.productdescription;
       //product.push(SearchPro)
       res.status(200).send({
         msg: "Product updated successfully",
