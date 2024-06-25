@@ -101,7 +101,8 @@ app.get('/sortproduct',(req,res)=>{
                 return a.cost - b.cost
             }
             else if(ord == "desc")
-            {
+            
+                {
                 return b.cost - a.cost
             }
             else
